@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :find_user :only => [:update, :show, :edit :destroy]
   def new
     @user = User.new
   end
@@ -18,7 +19,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
@@ -31,10 +31,10 @@ class UsersController < ApplicationController
 
   protected 
 
-  def set_user 
+  def find_user
+    #/ This acts as a helper method that is called before each show, edit, update, and destroy method.
     @user = User.find(params[:id])
-  end 
-
+  end
 
   def user_params 
     params.require(:user).permit(:email, :password, :password_confirmation)

@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'assets/index'
+
+  get 'assets/show'
+
+  get 'assets/create'
+
+  get 'assets/edit'
+
+  get 'assets/update'
+
+  get 'assets/destroy'
+
   resources :users
 
   root "sessions#new"

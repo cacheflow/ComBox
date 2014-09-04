@@ -7,10 +7,11 @@ class SessionsController < ApplicationController
 
   	if @user && @user.authenticate(params[:session][:password])
   		session_create 
-  		redirect_to user_path, notice: "You're logged in."
+  		redirect_to users_path, notice: "You're logged in."
   	else 
   		flash.now[:notice] = "Invalid login/password"
-  end
+  	end
+  end 
 
   def destroy
   	session.delete(:remember_token)

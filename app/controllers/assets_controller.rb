@@ -1,11 +1,15 @@
 class AssetsController < ApplicationController
-  before_action :find_asset :only => [:edit, :show, :update, :destroy]
+  before_action :find_asset, :only => [:edit, :show, :update, :destroy]
   def index
     @assets = current_user.assets 
   end
 
   def show
   end
+
+  def new 
+    @asset = Asset.new 
+  end 
 
   def create
     @asset = current_user.assets.create
@@ -32,3 +36,5 @@ class AssetsController < ApplicationController
     @asset = current_user.assets.find(params[:id])
 
 end
+
+end 

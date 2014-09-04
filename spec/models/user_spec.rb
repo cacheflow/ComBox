@@ -1,6 +1,7 @@
 require "rails_helper"
 
   describe User do
+  	 
   	before do 
   		@user = User.create(email: "me@me.com", password: "water", password_confirmation: "water")
   	end

@@ -14,13 +14,13 @@
 	</div>
 
 	<div id = "login_user_status">
-		<% if @current_user %> 
-		<%=link_to "Sign out", destroy_session_path %> 
+		<% if current_user   %> 
+		<%=link_to "Sign out", new_session_path, method: :delete %> 
 		<% else %> 
 			<em>Not Signed in</em>
-			<%= link_to "sign in", new_user_path %> 
+			<%= link_to "sign in", new_session_path %> 
 			or 
-			<%= link_to "sign up", new_session_path %> 
+			<%= link_to "sign up", new_user_path %> 
 		<% end %> 
 	</div>		
 

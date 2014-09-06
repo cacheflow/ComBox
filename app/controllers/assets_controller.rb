@@ -15,7 +15,7 @@ class AssetsController < ApplicationController
     @asset = current_user.assets.create(asset_params)
 
     if @asset.save
-      redirect_to @asset 
+      redirect_to @asset_path
     else
       render "new"
     end 
@@ -37,7 +37,7 @@ class AssetsController < ApplicationController
   end
 
   def asset_params 
-    params.require(:asset).permit(:uploaded_file, :user_id)
+    params.require(:asset).permit(:uploaded_file, :user_id, :created_at)
   end 
 
 end 

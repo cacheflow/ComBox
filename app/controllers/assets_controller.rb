@@ -8,14 +8,14 @@ class AssetsController < ApplicationController
   end
 
   def new 
-    @asset = Asset.new 
+    @asset = current_user.assets.new 
   end 
 
   def create
-    @asset = current_user.assets.create
+    @asset = current_user.assets.create(asset_params)
 
-    if @asset.save 
-      redirect_to user_assets_path
+    if @asset.save
+      redirect_to @asset 
     else
       render "new"
     end 
@@ -34,7 +34,10 @@ class AssetsController < ApplicationController
 
   def find_asset
     @asset = current_user.assets.find(params[:id])
+  end
 
-end
+  def asset_params 
+    params.require(:asset).permit(:uploaded_file, :user_id)
+  end 
 
 end 

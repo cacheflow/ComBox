@@ -15,6 +15,7 @@
 
 	<div id = "login_user_status">
 		<% if current_user   %> 
+		<%= @current_user.email %> 
 		<%=link_to "Sign out", new_session_path, method: :delete %> 
 		<% else %> 
 			<em>Not Signed in</em>
@@ -22,6 +23,11 @@
 			or 
 			<%= link_to "sign up", new_user_path %> 
 		<% end %> 
+		<%=link_to "Add Asset", new_asset_path, class: "btn btn-primary btn-lg" %>
+		</div>
+
+
+		</div>
 	</div>		
 
 </div>

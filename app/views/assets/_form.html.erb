@@ -1,5 +1,5 @@
-<%= bootstrap_form_for (@asset) do |a| %> 
- <%= a.label :uploaded_file %> 
- <%= a.file_field :uploaded_file %> 
+<%= bootstrap_form_for @asset do |a| %> 
+ <%= a.file_field :uploaded_file, label: "Asset" %>
+ <%= a.hidden_field :user_id %>  
  <%= a.submit %> 
  <% end %> 

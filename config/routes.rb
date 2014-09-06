@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :assets 
 
-  resources :users
+  resources :users 
+  resources :assets
+
 
   root "sessions#new"
 
